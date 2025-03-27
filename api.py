@@ -14,9 +14,6 @@ app = FastAPI(
         "name": "Lucas Caetano",
         "url": "https://github.com/lucasmatias"
     },
-    openapi_tags=[
-        {"name": "Classificação Metas", "description": "Operações relacionadas à classificação de metas"}
-    ],
     servers=[
         {"url": "https://bert-base-portuguese-cased-finetuned.onrender.com", "description": "Servidor de Produção"},
     ],
@@ -35,7 +32,7 @@ class MetaResponse(BaseModel):
     polaridade: str
 
 # Endpoint da API
-@app.post("/classificar-metas", response_model=List[MetaResponse])
+@app.post("/classificar-metas", response_model=List[MetaResponse], tags=["Classificação de Metas"])
 async def classificar_metas(request: MetaRequest):
 
     dados = {
