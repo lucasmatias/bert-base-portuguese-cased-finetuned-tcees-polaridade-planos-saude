@@ -5,12 +5,19 @@ from gradio_client import Client
 
 app = FastAPI(
     title="API para Classificação de Metas de Planos de Saúde",  # Novo título
-    description="API que classifica metas de planos de saúde quanto a polaridade 'quanto maior, melhor'(positivas) ou 'quanto menor, melhor'(negativas)",  # Nova descrição
+    description="API que classifica metas de planos de saúde em positivas ou negativas.",
     version="1.0.0",
+    openapi_url="https://digisusgmp.saude.gov.br/v1.5/docs/api-docs.json",
     contact={
         "name": "Lucas Caetano",
         "url": "https://github.com/lucasmatias"
-    }    
+    },    
+    openapi_tags=[
+        {"name": "Classificação Metas", "description": "Operações relacionadas à classificação de metas"}
+    ],
+    servers=[
+        {"url": "https://bert-base-portuguese-cased-finetuned.onrender.com", "description": "Servidor de Produção"},
+    ],    
 )
 client = Client("lucasmatias1990/bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude")
 
