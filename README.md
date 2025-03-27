@@ -1,0 +1,1 @@
+# bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude
