@@ -9,6 +9,7 @@ Esta √© uma API desenvolvida com FastAPI para classificar metas de planos de sa√
 - Pydantic
 - Gradio Client
 
+
 ## Como Executar
 
 1. Clone este reposit√≥rio:
@@ -62,5 +63,11 @@ Esta √© uma API desenvolvida com FastAPI para classificar metas de planos de sa√
   }
 ]
 ```
+## Modelo de IA 
 
+- Bert Finetuned: [https://huggingface.co/lucasmatias1990/bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude]
+
+## API do Modelo de IA
+
+- Gradio (Space Huggingface): [https://huggingface.co/spaces/lucasmatias1990/bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude/tree/main]
 
