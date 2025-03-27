@@ -65,7 +65,7 @@ Esta √© uma API desenvolvida com FastAPI para classificar metas de planos de sa√
 ```
 ## Modelo de IA 
 
-- Bert Finetuned: [https://huggingface.co/lucasmatias1990/bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude]
+- BERT Finetuned: [https://huggingface.co/lucasmatias1990/bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude]
 
 ## API do Modelo de IA
 
