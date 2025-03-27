@@ -3,7 +3,15 @@ from pydantic import BaseModel
 from typing import List
 from gradio_client import Client
 
-app = FastAPI()
+app = FastAPI(
+    title="API para Classificação de Metas de Planos de Saúde",  # Novo título
+    description="API que classifica metas de planos de saúde quanto a polaridade 'quanto maior, melhor'(positivas) ou 'quanto menor, melhor'(negativas)",  # Nova descrição
+    version="1.0.0",
+    contact={
+        "name": "Lucas Caetano",
+        "url": "https://github.com/lucasmatias"
+    }    
+)
 client = Client("lucasmatias1990/bert-base-portuguese-cased-finetuned-tcees-polaridade-planos-saude")
 
 # Modelo da requisição
@@ -14,21 +22,6 @@ class MetaRequest(BaseModel):
 class MetaResponse(BaseModel):
     texto: str
     polaridade: str
-
-# Simulação de classificação das metas
-def classificar_polaridade(meta):
-    palavras_positivas = ["aumentar", "melhorar", "expandir"]
-    palavras_negativas = ["diminuir", "reduzir", "limitar"]
-
-    for palavra in palavras_positivas:
-        if palavra in meta.lower():
-            return "positiva"
-    
-    for palavra in palavras_negativas:
-        if palavra in meta.lower():
-            return "negativa"
-
-    return "neutra"
 
 # Endpoint da API
 @app.post("/classificar-metas", response_model=List[MetaResponse])
